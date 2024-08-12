@@ -26,7 +26,7 @@
           </li><!-- .nk-menu-item -->
 
           <li class="nk-menu-item">
-            <a href="{{ url('dashboard/overview') }}" class="nk-menu-link">
+            <a href="{{ url('dashboard/app') }}" class="nk-menu-link">
               <span class="nk-menu-icon"><em class="icon ni ni-home"></em></span>
               <span class="nk-menu-text">Ikhtisar</span>
             </a>

@@ -35,9 +35,6 @@ class SettingsController extends Controller
 
 
     if ($request->file('logo')) {
-      if ($request->oldLogo) {
-        Storage::delete('assets/logo/' . $request->oldLogo);
-      }
       $eks = $request->file('logo')->getClientOriginalExtension();
       $request->file('logo')->storeAs('assets/logo', md5($request->input('name')) . '.' . $eks);
       $validatedData['logo'] = md5($request->input('name')) . '.' . $eks;
