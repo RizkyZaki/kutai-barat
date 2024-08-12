@@ -69,6 +69,82 @@
     </div>
   </section>
 
+  <section class="pb-6">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5 md-mb-30px"
+          data-anime='{ "el": "childs", "translateX": [15, 0], "opacity": [0,1], "duration": 600, "delay": 100, "staggervalue": 300, "easing": "easeOutQuad" }'>
+          <div
+            class="bg-dark-gray border-radius-100px fs-12 text-white ps-20px pe-20px d-inline-block text-uppercase fw-500 mb-5 ls-05px">
+            Area Fokus</div>
+          <h3 class="text-dark-gray fw-600 ls-minus-2px">Komitmen Kami untuk Menjaga Keamanan dan Kesejahteraan Masyarakat
+          </h3>
+          <p class="w-90 md-w-100">Kami berdedikasi untuk menjaga ketertiban dan keamanan di masyarakat dengan
+            profesionalisme dan integritas. Dengan pengalaman dan pelatihan yang mendalam, kami berkomitmen untuk
+            memberikan pelayanan terbaik kepada setiap warga negara.</p>
+
+        </div>
+        <div class="col-xl-6 col-lg-7 offset-xl-1">
+          <div class="row row-cols-auto row-cols-sm-2"
+            data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 600, "delay":300, "staggervalue": 150, "easing": "easeOutQuad" }'>
+            <!-- start features box item -->
+            <div class="col align-self-start">
+              <div class="feature-box text-start ps-30px">
+                <div class="feature-box-icon position-absolute left-0px top-10px">
+                  <h1
+                    class="fs-85 text-outline text-outline-width-1px text-outline-color-dark-gray fw-700 ls-minus-1px opacity-2 mb-0">
+                    01</h1>
+                </div>
+                <div class="feature-box-content last-paragraph-no-margin pt-25 md-pt-17 sm-pt-40px">
+                  <span class="text-dark-gray fs-19 d-inline-block fw-600 mb-5px">Keamanan Publik</span>
+                  <p>Kami berkomitmen untuk menjaga keamanan publik dengan tindakan yang cepat dan efektif dalam
+                    menghadapi situasi darurat.</p>
+                  <span class="w-40px h-3px bg-base-color d-inline-block"></span>
+                </div>
+              </div>
+            </div>
+            <!-- end features box item -->
+            <!-- start features box item -->
+            <div class="col align-self-end mt-20 xs-mt-15px">
+              <div class="feature-box text-start ps-30px">
+                <div class="feature-box-icon position-absolute left-0px top-10px">
+                  <h1
+                    class="fs-85 text-outline text-outline-width-1px text-outline-color-dark-gray fw-700 ls-minus-1px opacity-2 mb-0">
+                    02</h1>
+                </div>
+                <div class="feature-box-content last-paragraph-no-margin pt-25 md-pt-17 sm-pt-40px">
+                  <span class="text-dark-gray fs-19 d-inline-block fw-600 mb-5px">Pelayanan Masyarakat</span>
+                  <p>Memberikan pelayanan yang responsif dan ramah kepada masyarakat untuk memastikan kebutuhan dan
+                    hak-hak warga terpenuhi dengan baik.</p>
+                  <span class="w-40px h-3px bg-base-color d-inline-block"></span>
+                </div>
+              </div>
+            </div>
+            <!-- end features box item -->
+            <!-- start features box item -->
+            <div class="col align-self-start mt-minus-12 xs-mt-15px">
+              <div class="feature-box text-start ps-30px">
+                <div class="feature-box-icon position-absolute left-0px top-10px">
+                  <h1
+                    class="fs-85 text-outline text-outline-width-1px text-outline-color-dark-gray fw-700 ls-minus-1px opacity-2 mb-0">
+                    03</h1>
+                </div>
+                <div class="feature-box-content last-paragraph-no-margin pt-25 md-pt-17 sm-pt-40px">
+                  <span class="text-dark-gray fs-19 d-inline-block fw-600 mb-5px">Pencegahan Kriminal</span>
+                  <p>Mengimplementasikan berbagai program dan inisiatif untuk mencegah tindakan kriminal dan meningkatkan
+                    keamanan komunitas.</p>
+                  <span class="w-40px h-3px bg-base-color d-inline-block"></span>
+                </div>
+              </div>
+            </div>
+            <!-- end features box item -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <section class="overflow-hidden position-relative pt-0 lg-pb-0">
     <div class="container-fluid">
       <div class="row position-relative">

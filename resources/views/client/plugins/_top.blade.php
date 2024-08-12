@@ -7,6 +7,7 @@
 
 <meta name="description" content="{{ appSetting()->description }}" />
 <meta name="keyword" content="{{ appSetting()->keyword }}" />
+<link rel="shortcut icon" href="{{ asset('storage/assets/logo/' . appSetting()->logo) }}">
 
 <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
 

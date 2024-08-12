@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Information;
 use App\Models\News;
 use App\Models\Slider;
@@ -56,7 +57,11 @@ class ClientController extends Controller
       'email' => 'required|email',
       'message' => 'required|string',
     ]);
-
+    Contact::create([
+      'subject' => $request->subject,
+      'email' => $request->email,
+      'message' => $request->message,
+    ]);
     return back()->with('success', 'Pesan kamu telah dikirim!');
   }
 }
