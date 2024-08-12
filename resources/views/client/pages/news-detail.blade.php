@@ -25,10 +25,13 @@
     </div>
   </section>
 
-  <section class="pb-0">
+  <section class="pb-4">
     <div class="container">
       <div class="row justify-content-center"
         data-anime="{&quot;el&quot;:&quot;childs&quot;,&quot;translateY&quot;:[50,0],&quot;opacity&quot;:[0,1],&quot;duration&quot;:1200,&quot;delay&quot;:0,&quot;staggervalue&quot;:150,&quot;easing&quot;:&quot;easeOutQuad&quot;}">
+        <div class="card">
+          <img src="{{ asset('storage/assets/attach/' . $data->attachment) }}" width="300" alt="">
+        </div>
         <div class="col-lg-10 last-paragraph-no-margin">
           {!! $data->description !!}
         </div>
