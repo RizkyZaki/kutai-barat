@@ -49,7 +49,7 @@
                                       <li><a href="{{ url('dashboard/information/' . $item->slug . '/edit') }}"><em
                                             class="icon ni ni-pen"></em><span>Ubah</span></a></li>
                                       <li><a href="javascript:void(0);" data-url="information"
-                                          data-identity={{ $item->slug }}class="hapus"><em
+                                          data-identity={{ $item->slug }} class="hapus"><em
                                             class="icon ni ni-trash"></em><span>Hapus</span></a>
                                       </li>
                                     </ul>
