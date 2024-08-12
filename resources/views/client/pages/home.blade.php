@@ -152,26 +152,21 @@
           <div
             class="box-shadow-quadruple-large box-shadow-quadruple-large-hover border border-2 border-color-white border-radius-8px overflow-hidden">
             <img src="{{ asset('Presisi.png') }}" class="w-100" alt="">
-            <div class="pb-50px ps-15px pe-15px bg-very-light-gray last-paragraph-no-margin text-center">
-            </div>
+
           </div>
         </div>
         <div class="col md-mb-30px">
           <div
             class="box-shadow-quadruple-large box-shadow-quadruple-large-hover border border-2 border-color-white border-radius-8px overflow-hidden">
             <img src="{{ asset('2.png') }}" class="w-100" alt="">
-            <div class="pb-50px ps-15px pe-15px bg-very-light-gray last-paragraph-no-margin text-center">
 
-            </div>
           </div>
         </div>
         <div class="col">
           <div
             class="box-shadow-quadruple-large box-shadow-quadruple-large-hover border border-2 border-color-white border-radius-8px overflow-hidden">
             <img src="{{ asset('1.png') }}" class="w-60" alt="">
-            <div class="pb-50px ps-15px pe-15px bg-very-light-gray last-paragraph-no-margin text-center">
 
-            </div>
           </div>
         </div>
       </div>
