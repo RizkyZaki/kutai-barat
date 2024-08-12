@@ -17,7 +17,7 @@ Route::controller(ClientController::class)->group(function () {
   Route::get('news/{slug}', 'newsDetail');
   Route::get('information/{slug}', 'info');
   Route::get('contact', 'contact');
-  Route::post('contact', 'store');
+  Route::post('contact', 'store')->name('contact.submit');
 });
 Route::middleware('guest')->group(function () {
   Route::get('login', [AuthController::class, 'login'])->name('login');

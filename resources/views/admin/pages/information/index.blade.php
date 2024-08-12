@@ -42,7 +42,7 @@
                               <td>{{ timesInd($item->created_at) }}</td>
                               <td class="text-center">
                                 <div class="drodown">
-                                  <a href="javascript:void(0);" disabled class="dropdown-toggle btn btn-icon btn-trigger"
+                                  <a href="javascript:void(0);" class="dropdown-toggle btn btn-icon btn-trigger"
                                     data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                   <div class="dropdown-menu dropdown-menu-end">
                                     <ul class="link-list-opt no-bdr">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
@@ -59,7 +60,7 @@ class NewsController extends Controller
     }
 
     News::create([
-      'enhancer' => 1,
+      'enhancer' => Auth::user()->id,
       'name' => $request->name,
       'slug' => $request->slug,
       'attachment' => $hashIMG,
@@ -78,21 +79,23 @@ class NewsController extends Controller
   /**
    * Show the form for editing the specified resource.
    */
-  public function edit(News $info)
+  public function edit($slug)
   {
-    return view('admin.pages.information.update', [
-      'title' => 'Informasi',
-      'heading' => 'Ubah Data Informasi',
-      'data' => $info,
+    $news = News::where('slug', $slug)->first();
+    return view('admin.pages.news.update', [
+      'title' => 'Berita',
+      'heading' => 'Ubah Data Berita',
+      'data' => $news,
     ]);
   }
 
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, News $info)
+  public function update(Request $request, $slug)
   {
     // Validasi data dengan pesan kustom
+    $news = News::where('slug', $slug)->first();
     $validatedData = $request->validate([
       'name' => 'required',
       'slug' => 'required',
@@ -108,21 +111,21 @@ class NewsController extends Controller
     ]);
 
     if ($request->hasFile('attachment')) {
-      if ($info->attachment) {
-        Storage::delete('assets/attach/' . $info->attachment);
+      if ($news->attachment) {
+        Storage::delete('assets/attach/' . $news->attachment);
       }
 
       $attachment = $request->file('attachment');
       $hashIMG = md5($attachment->getClientOriginalName()) . '.' . $attachment->getClientOriginalExtension();
       $attachment->storeAs('assets/attach', $hashIMG);
 
-      $info->attachment = $hashIMG;
+      $news->attachment = $hashIMG;
     }
 
-    $info->name = $request->name;
-    $info->description = $request->description;
-    $info->slug = $request->slug;
-    $info->save();
+    $news->name = $request->name;
+    $news->description = $request->description;
+    $news->slug = $request->slug;
+    $news->save();
 
     return redirect('dashboard/news')->with('success', 'Berita berhasil diubah');
   }

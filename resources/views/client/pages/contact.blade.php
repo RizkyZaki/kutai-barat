@@ -25,6 +25,28 @@
   </section>
 
   <div class="row">
-
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-6">
+        <form action="{{ route('contact.submit') }}" method="POST">
+          @csrf
+          <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control" id="subject" name="subject" placeholder="Masukkan subject"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tulis pesanmu di sini"
+              required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+        </form>
+      </div>
+    </div>
   </div>
 @endsection

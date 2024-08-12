@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Information;
 use App\Models\Tags;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -63,7 +64,7 @@ class InformationController extends Controller
     }
 
     Information::create([
-      'enhancer' => Auth()->id,
+      'enhancer' => Auth::user()->id,
       'name' => $request->name,
       'slug' => $request->slug,
       'attachment' => $hashIMG,
@@ -82,8 +83,9 @@ class InformationController extends Controller
   /**
    * Show the form for editing the specified resource.
    */
-  public function edit(Information $info)
+  public function edit($slug)
   {
+    $info = Information::where('slug', $slug)->first();
     return view('admin.pages.information.update', [
       'title' => 'Informasi',
       'heading' => 'Ubah Data Informasi',
@@ -94,8 +96,9 @@ class InformationController extends Controller
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, Information $info)
+  public function update(Request $request, $slug)
   {
+    $info = Information::where('slug', $slug)->first();
     // Validasi data dengan pesan kustom
     $validatedData = $request->validate([
       'name' => 'required',

@@ -42,4 +42,21 @@ class ClientController extends Controller
       'news' => $data
     ]);
   }
+  public function contact()
+  {
+    return view('client.pages.contact', [
+      'title' => 'Kontak Kami',
+    ]);
+  }
+
+  public function store(Request $request)
+  {
+    $request->validate([
+      'subject' => 'required|string|max:255',
+      'email' => 'required|email',
+      'message' => 'required|string',
+    ]);
+
+    return back()->with('success', 'Pesan kamu telah dikirim!');
+  }
 }
