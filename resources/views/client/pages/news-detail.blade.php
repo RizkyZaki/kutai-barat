@@ -29,7 +29,7 @@
     <div class="container">
       <div class="row justify-content-center"
         data-anime="{&quot;el&quot;:&quot;childs&quot;,&quot;translateY&quot;:[50,0],&quot;opacity&quot;:[0,1],&quot;duration&quot;:1200,&quot;delay&quot;:0,&quot;staggervalue&quot;:150,&quot;easing&quot;:&quot;easeOutQuad&quot;}">
-        <div class="mx-auto mb-2">
+        <div class="text-center mb-2">
           <img src="{{ asset('storage/assets/attach/' . $data->attachment) }}" width="300" alt="">
         </div>
         <div class="col-lg-10 last-paragraph-no-margin">
