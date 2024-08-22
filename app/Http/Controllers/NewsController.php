@@ -38,24 +38,34 @@ class NewsController extends Controller
       'name' => 'required',
       'slug' => 'required',
       'description' => 'required',
-      'attachment' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+      'landscape' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+      'potrait' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
     ], [
       'name.required' => 'Judul Tidak Boleh Kosong.',
       'description.required' => 'Deskripsi Tidak Boleh Kosong.',
       'slug.required' => 'Slug Tidak Boleh Kosong',
-      'image.image' => 'File yang diunggah harus berupa gambar.',
-      'image.mimes' => 'File gambar harus dalam format: jpeg, png, jpg, gif.',
-      'image.max' => 'Ukuran file gambar tidak boleh lebih dari 2MB.',
-      'pdf.mimes' => 'File harus berupa PDF.',
-      'pdf.max' => 'Ukuran file PDF tidak boleh lebih dari 2MB.',
+      'landscape.image' => 'File yang diunggah harus berupa gambar.',
+      'landscape.mimes' => 'File gambar harus dalam format: jpeg, png, jpg, gif.',
+      'landscape.max' => 'Ukuran file gambar tidak boleh lebih dari 2MB.',
+      'potrait.image' => 'File yang diunggah harus berupa gambar.',
+      'potrait.mimes' => 'File gambar harus dalam format: jpeg, png, jpg, gif.',
+      'potrait.max' => 'Ukuran file gambar tidak boleh lebih dari 2MB.',
+
     ]);
 
-    $hashIMG = null;
+    $hashLS = null;
+    $hashPT = null;
 
-    if ($request->hasFile('attachment')) {
-      $image = $request->file('attachment');
-      $hashIMG = md5($image->getClientOriginalName()) . '.' . $image->getClientOriginalExtension();
-      $imagePath = 'assets/attach/' . $hashIMG;
+    if ($request->hasFile('landscape')) {
+      $image = $request->file('landscape');
+      $hashLS = md5($image->getClientOriginalName()) . '.' . $image->getClientOriginalExtension();
+      $imagePath = 'assets/attach/' . $hashLS;
+      $image->storeAs($imagePath);
+    }
+    if ($request->hasFile('potrait')) {
+      $image = $request->file('potrait');
+      $hashPT = md5($image->getClientOriginalName()) . '.' . $image->getClientOriginalExtension();
+      $imagePath = 'assets/attach/' . $hashPT;
       $image->storeAs($imagePath);
     }
 
@@ -63,7 +73,8 @@ class NewsController extends Controller
       'enhancer' => Auth::user()->id,
       'name' => $request->name,
       'slug' => $request->slug,
-      'attachment' => $hashIMG,
+      'landscape' => $hashLS,
+      'potrait' => $hashPT,
       'description' => $request->description,
     ]);
 
@@ -100,26 +111,41 @@ class NewsController extends Controller
       'name' => 'required',
       'slug' => 'required',
       'description' => 'required',
-      'attachment' => $request->hasFile('attachment') ? 'image|mimes:jpeg,png,jpg|max:2048' : '',
+      'landscape' => $request->hasFile('landscape') ? 'image|mimes:jpeg,png,jpg|max:2048' : '',
+      'potrait' => $request->hasFile('potrait') ? 'image|mimes:jpeg,png,jpg|max:2048' : '',
     ], [
       'name.required' => 'Judul Tidak Boleh Kosong.',
       'slug.required' => 'Slug Tidak Boleh Kosong',
       'description.required' => 'Deskripsi Tidak Boleh Kosong',
-      'attacment.image' => 'File yang diunggah harus berupa gambar.',
-      'attachment.mimes' => 'File gambar harus dalam format: jpeg, png, jpg.',
-      'attachment.max' => 'Ukuran file gambar tidak boleh lebih dari 2MB.',
+      'landscape.image' => 'File yang diunggah harus berupa gambar.',
+      'landscape.mimes' => 'File gambar harus dalam format: jpeg, png, jpg, gif.',
+      'landscape.max' => 'Ukuran file gambar tidak boleh lebih dari 2MB.',
+      'potrait.image' => 'File yang diunggah harus berupa gambar.',
+      'potrait.mimes' => 'File gambar harus dalam format: jpeg, png, jpg, gif.',
+      'potrait.max' => 'Ukuran file gambar tidak boleh lebih dari 2MB.',
     ]);
 
-    if ($request->hasFile('attachment')) {
-      if ($news->attachment) {
-        Storage::delete('assets/attach/' . $news->attachment);
+    if ($request->hasFile('landscape')) {
+      if ($news->landscape) {
+        Storage::delete('assets/attach/' . $news->landscape);
       }
 
-      $attachment = $request->file('attachment');
-      $hashIMG = md5($attachment->getClientOriginalName()) . '.' . $attachment->getClientOriginalExtension();
-      $attachment->storeAs('assets/attach', $hashIMG);
+      $landscape = $request->file('landscape');
+      $hashLS = md5($landscape->getClientOriginalName()) . '.' . $landscape->getClientOriginalExtension();
+      $landscape->storeAs('assets/attach', $hashLS);
 
-      $news->attachment = $hashIMG;
+      $news->landscape = $hashLS;
+    }
+    if ($request->hasFile('potrait')) {
+      if ($news->potrait) {
+        Storage::delete('assets/attach/' . $news->potrait);
+      }
+
+      $potrait = $request->file('potrait');
+      $hashPT = md5($potrait->getClientOriginalName()) . '.' . $potrait->getClientOriginalExtension();
+      $potrait->storeAs('assets/attach', $hashPT);
+
+      $news->potrait = $hashPT;
     }
 
     $news->name = $request->name;
@@ -140,8 +166,11 @@ class NewsController extends Controller
     $info = News::where('slug', $slug)->first();
 
     if ($info) {
-      if ($info->attachment) {
-        Storage::delete('assets/attach/' . $info->attachment);
+      if ($info->landscape) {
+        Storage::delete('assets/attach/' . $info->landscape);
+      }
+      if ($info->potrait) {
+        Storage::delete('assets/attach/' . $info->potrait);
       }
 
       $info->delete();

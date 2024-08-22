@@ -37,7 +37,7 @@
                 <div class="card border-0 border-radius-4px box-shadow-quadruple-large box-shadow-quadruple-large-hover">
                   <div class="blog-image">
                     <a href="{{ url('news/' . $item->slug) }}" class="d-block">
-                      <img class="own-thumbnail" src="{{ asset('storage/assets/attach/' . $item->attachment) }}"
+                      <img class="own-thumbnail" src="{{ asset('storage/assets/attach/' . $item->potrait) }}"
                         alt="" />
                     </a>
 

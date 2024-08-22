@@ -29,10 +29,20 @@
   </div>
   <div class="col-md-12">
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Upload File </label>
-      <input type="file" class="form-control @error('attachment') is-invalid @enderror" name="attachment"
-        value="{{ $data['attachment'] ?? '' }}" id="attachment" aria-describedby="emailHelp" accept="image/*">
-      @error('attachment')
+      <label for="exampleInputEmail1" class="form-label">Foto Landscape </label>
+      <input type="file" class="form-control @error('landscape') is-invalid @enderror" name="landscape"
+        value="{{ $data['landscape'] ?? '' }}" id="landscape" aria-describedby="emailHelp" accept="image/*">
+      @error('landscape')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+      @enderror
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Foto Potrait </label>
+      <input type="file" class="form-control @error('potrait') is-invalid @enderror" name="potrait"
+        value="{{ $data['potrait'] ?? '' }}" id="potrait" aria-describedby="emailHelp" accept="image/*">
+      @error('potrait')
         <div class="invalid-feedback">
           {{ $message }}
         </div>
