@@ -10,23 +10,23 @@ use Illuminate\Support\Facades\Hash;
 
 class SettingSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        DB::table('settings')->insert([
-            'name' => "Polres Kutai Barat",
-            'description' => "Website Resmi Polres Kutai Barat",
-            'phone' => "-",
-            'keyword' => "polisi, kutai barat, informasi, berita",
-            'logo' => "-",
-            'email' => "-",
-            'link_yt' => "-",
-            'link_fb' => "-",
-            'link_ig' => "-",
-            'address' => "Kutai Barat",
-            'created_at' => now()
-        ]);
-    }
+  /**
+   * Run the database seeds.
+   */
+  public function run(): void
+  {
+    DB::table('settings')->insert([
+      'name' => "Polres Kutai Barat",
+      'description' => "Website Resmi Polres Kutai Barat",
+      'phone' => "-",
+      'keyword' => "polisi, kutai barat, informasi, berita",
+      'logo' => "725d922e82a028b85e5bda54b6e37930.png",
+      'email' => "-",
+      'link_yt' => "-",
+      'link_fb' => "-",
+      'link_ig' => "-",
+      'address' => "Kutai Barat",
+      'created_at' => now()
+    ]);
+  }
 }

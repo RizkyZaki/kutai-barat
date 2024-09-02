@@ -18,6 +18,8 @@ Route::controller(ClientController::class)->group(function () {
   Route::get('information/{slug}', 'info');
   Route::get('contact', 'contact');
   Route::post('contact', 'store')->name('contact.submit');
+  Route::post('/comments', 'commentStore')->name('comments.store');
+  Route::post('/comments/reply/{comment}', 'reply')->name('comments.reply');
 });
 Route::middleware('guest')->group(function () {
   Route::get('login', [AuthController::class, 'login'])->name('login');

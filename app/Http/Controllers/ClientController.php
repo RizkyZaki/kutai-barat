@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comments;
 use App\Models\Contact;
 use App\Models\Information;
 use App\Models\News;
@@ -21,7 +22,7 @@ class ClientController extends Controller
 
   public function newsDetail($slug)
   {
-    $data = News::where('slug', $slug)->first();
+    $data = News::where('slug', $slug)->with('comments.replies')->first();
     return view('client.pages.news-detail', [
       'title' => $data->name,
       'data' => $data
@@ -63,5 +64,43 @@ class ClientController extends Controller
       'message' => $request->message,
     ]);
     return back()->with('success', 'Pesan kamu telah dikirim!');
+  }
+  public function commentStore(Request $request)
+  {
+    // Validasi data yang diterima
+    $request->validate([
+      'user' => 'required|string|max:1000',
+      'comment' => 'required|string|max:1000',
+      'news_id' => 'required|exists:news,id',
+      'parent_id' => 'nullable|exists:comments,id',
+    ]);
+
+    Comments::create([
+      'news_id' => $request->news_id,
+      'user' => $request->user,
+      'comment' => $request->comment,
+      'parent_id' => $request->parent_id,
+    ]);
+
+    // Redirect kembali ke halaman sebelumnya
+    return back()->with('success', 'Komentar berhasil ditambahkan!');
+  }
+
+
+  public function reply(Request $request, Comments $comment)
+  {
+    $request->validate([
+      'user' => 'required|string|max:1000',
+      'comment' => 'required|string|max:1000',
+    ]);
+
+    Comments::create([
+      'news_id' => $comment->news_id,
+      'user' => $request->user,
+      'parent_id' => $comment->id,
+      'comment' => $request->comment,
+    ]);
+
+    return back();
   }
 }

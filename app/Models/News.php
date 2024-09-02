@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class News extends Model
 {
-    use HasFactory, SoftDeletes;
-    protected $table = 'news';
-    protected $guarded = ['id'];
+  use HasFactory, SoftDeletes;
+  protected $table = 'news';
+  protected $guarded = ['id'];
+  public function comments()
+  {
+    return $this->hasMany(Comments::class);
+  }
 }
