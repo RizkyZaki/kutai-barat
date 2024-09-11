@@ -126,9 +126,6 @@ class NewsController extends Controller
     ]);
 
     if ($request->hasFile('landscape')) {
-      if ($news->landscape) {
-        Storage::delete('assets/attach/' . $news->landscape);
-      }
 
       $landscape = $request->file('landscape');
       $hashLS = md5($landscape->getClientOriginalName()) . '.' . $landscape->getClientOriginalExtension();
@@ -137,9 +134,6 @@ class NewsController extends Controller
       $news->landscape = $hashLS;
     }
     if ($request->hasFile('potrait')) {
-      if ($news->potrait) {
-        Storage::delete('assets/attach/' . $news->potrait);
-      }
 
       $potrait = $request->file('potrait');
       $hashPT = md5($potrait->getClientOriginalName()) . '.' . $potrait->getClientOriginalExtension();

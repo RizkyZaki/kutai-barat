@@ -2,7 +2,7 @@
 
 @section('content-client')
     <section class="cover-background one-fifth-screen bg-dark-gray ipad-top-space-margin d-flex align-items-center"
-        style="background-image: url({{ asset('storage/assets/attach/' . $data->attachment) }})">
+        style="background-image: url({{ asset('storage/assets/attach/' . $data->landscape) }})">
         <div class="opacity-extra-medium bg-gradient-dark-transparent"></div>
 
         <div class="container">
@@ -30,7 +30,7 @@
             <div class="row justify-content-center"
                 data-anime="{&quot;el&quot;:&quot;childs&quot;,&quot;translateY&quot;:[50,0],&quot;opacity&quot;:[0,1],&quot;duration&quot;:1200,&quot;delay&quot;:0,&quot;staggervalue&quot;:150,&quot;easing&quot;:&quot;easeOutQuad&quot;}">
                 <div class="text-center mb-2">
-                    <img src="{{ asset('storage/assets/attach/' . $data->landscape) }}" width="500" alt="">
+                    <img src="{{ asset('storage/assets/attach/' . $data->potrait) }}" width="500" alt="">
                 </div>
                 <div class="col-lg-10 last-paragraph-no-margin">
                     {!! $data->description !!}
